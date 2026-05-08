@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Netflix AI Deployment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Netflix Model Application Phase</h1>
+    <div class="container" style="border: 2px solid #00ffcc; padding: 30px; display: inline-block; margin-top: 50px; background: #1a1a1a;">
+        <form action="/predict" method="post">
+            <!-- Label fixed here -->
+            <label for="movie_title" style="color: #00ffcc; font-size: 18px; display: block; margin-bottom: 15px;">
+                Enter Movie or TV Show Title:
+            </label>
+            <input type="text" id="movie_title" name="movie_title" placeholder="Search..." required 
+                   style="padding: 10px; width: 300px; background: #333; color: white; border: 1px solid #00ffcc;">
+            <br><br>
+            
+            <button type="submit" style="background: #00ffcc; color: black; padding: 10px 20px; border: none; cursor: pointer; font-weight: bold;">
+                Predict Now
+            </button>
+        </form>
+        {% if prediction_text %}
+        <div id="status" style="margin-top: 25px; color: #ff66cc; font-size: 20px;">
+            {{ prediction_text }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

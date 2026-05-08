@@ -1,0 +1,15 @@
+#ai lab task 09
+import pandas as pd
+dataset = pd.read_csv('data.csv', on_bad_lines='skip')
+print("--- Top 5 Rows ---")
+print(dataset.head())
+print("\n--- Bottom 5 Rows ---")
+print(dataset.tail())
+print("\n--- Shape of Dataset ---")
+print('rows:', dataset.shape[0])
+print('columns:', dataset.shape[1])
+print("\n--- Null Values per Column ---")
+print(dataset.isnull().sum())
+dataset = dataset.fillna("")
+print("\n--- Column Data Types ---")
+print(dataset.dtypes)
